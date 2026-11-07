@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #1d2328;
+  --accent: #d58a5a;
+  --accent-dark: #9a5a3a;
+  --accent-light: rgba(213, 138, 90, 0.1);
+  --bg-card: #f8f9fa;
+  --text-muted: #6c757d;
+  --border-line: rgba(29, 35, 40, 0.12);
+  /* ฟอนต์ภาษาไทยและอังกฤษสำหรับทั้งระบบ */
+  --font-family: 'Plus Jakarta Sans', 'Kanit', 'Prompt', system-ui, -apple-system, sans-serif;
+}
+
+.upload-container {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  font-family: var(--font-family);
+  color: var(--primary);
+  line-height: 1.5;
+}
+
+.upload-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.upload-header {
+  margin-bottom: 28px;
+}
+
+.upload-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: var(--font-family);
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.upload-header p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+}
+
+.upload-form {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+}
+
+/* อัปโหลดรูปภาพ */
+.file-drop-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border: 2px dashed var(--border-line);
+  border-radius: 20px;
+  background-color: var(--bg-card);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.file-drop-area:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.upload-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+  color: var(--primary);
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-family);
+}
+
+.preview-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.change-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-weight: 600;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+}
+
+.preview-container:hover .change-image-overlay {
+  opacity: 1;
+}
+
+/* ฟิลด์กรอกข้อมูล */
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+  color: var(--primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-line);
+  outline: none;
+  font-size: 0.95rem;
+  font-family: var(--font-family);
+  color: var(--primary);
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
+  font-family: var(--font-family);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 3px rgba(213, 138, 90, 0.18);
+}
+
+.submit-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.submit-upload-btn:hover {
+  background-color: #343a40;
+  transform: translateY(-1px);
+}
+
+.submit-upload-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .upload-form {
+    grid-template-columns: 1fr;
+  }
+
+  .upload-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+}
